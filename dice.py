@@ -8,9 +8,9 @@ sub_total_score= 0
 n=0
 
 
-def player_hit():
-    
+def player_hit():    
     return random.choice(six_side_di)+random.choice(six_side_di)
+
     
 
 def dealer_hit():
