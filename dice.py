@@ -2,25 +2,26 @@ import random
 #This might be done I gave some docunent code to show how it can work, a hard coded model of course. 
 # BUT this is a practical set up....
 six_side_di=[1,2,3,4,5,6]
-dealer_score=[]
-player_score=[]
-sub_total_score= 0
-n=0
+dealer_score=[]#will be tracked with int variable called n for example dealer[round]
+player_score=[]#will be tracked with int variable called n for example player[round]
+n = 0
+sub_total_score = 0  # the starting score
+
 
 
 def player_hit():    
-    return random.choice(six_side_di)+random.choice(six_side_di)
-
-    
+    return random.choice(six_side_di) + random.choice(six_side_di) 
 
 def dealer_hit():
     return random.choice(six_side_di)
 
-def stand_dealer():
-    return dealer_score.append(sub_total_score)
+def stand_dealer(sub_score):
+    return dealer_score.append(sub_score)
 
-def stand_player():
-    return player_score.append(sub_total_score)
+def stand_player(sub_score):
+    return player_score.append(sub_score)
+
+
     
 # This is to both test the code and get an idea on how the input will go.
 """di = player_hit()
