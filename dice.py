@@ -20,7 +20,12 @@ def stand_dealer(sub_score):
 
 def stand_player(sub_score):
     return player_score.append(sub_score)
-
+def wins(win):
+    all_wins=all_wins+win
+    return all_wins
+def loses(lose):
+    all_loses=all_loses+lose
+    return all_loses
 
     
 # This is to both test the code and get an idea on how the input will go.
