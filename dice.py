@@ -6,6 +6,8 @@ dealer_score=[]#will be tracked with int variable called n for example dealer[ro
 player_score=[]#will be tracked with int variable called n for example player[round]
 n = 0
 sub_total_score = 0  # the starting score
+all_loses= 0
+all_wins = 0
 
 
 
@@ -20,12 +22,7 @@ def stand_dealer(sub_score):
 
 def stand_player(sub_score):
     return player_score.append(sub_score)
-def wins(win):
-    all_wins=all_wins+win
-    return all_wins
-def loses(lose):
-    all_loses=all_loses+lose
-    return all_loses
+
 
     
 # This is to both test the code and get an idea on how the input will go.

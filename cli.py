@@ -22,7 +22,7 @@ if age >= 18:
             sub_total_score += di
             print(f"{player.name}, you rolled: {di}. Your total is now {sub_total_score}.")
         else:
-            print("still round:",n+1)
+            print("still round:",n+1,"still roll",sub_total_score)
             print("Invalid choice. Please type 'hit' or 'stand'.")
             choice = input("Hit or stand?").strip().lower()
             if choice=="hit":
@@ -40,20 +40,24 @@ if age >= 18:
                     di = dealer_hit()
                     sub_total_score += di
                     print(f"dealer rolled a {di} his current score:{sub_total_score}")
-                    if sub_total_score >21:
-                        stand_dealer(sub_total_score)
-                        print(f"The dealer has busted!! with a score of {dealer_score[n]}.")
-                        print(f"{player.name}, your score is {player_score[n]} you won!")
-                        play_again=input(f"Want to play again {player.name}? yes/y/1 for yes, other keys to cashout").strip().lower()
-                        
-                        if play_again=="yes" or play_again=="y" or play_again=="1":
-                            n=n+1
-                            sub_total_score=0
-                            continue
-                        else:
-                            break
+                if sub_total_score >21:
+                    all_wins=all_wins+1
+                    stand_dealer(sub_total_score)
+                    print(f"The dealer has busted!! with a score of {dealer_score[n]}.")
+                    print(f"{player.name}, your score is {player_score[n]} you won!")
+                    play_again=input(f"Want to play again {player.name}? yes/y/1 for yes, other keys to cashout").strip().lower()
+                    
+                    if play_again=="yes" or play_again=="y" or play_again=="1":
+                        n=n+1
+                        sub_total_score=0
+                        valid=True
+                        continue
+                    else:
+                        print(f"{player.name} you have: \n{all_wins} wins and {all_loses} loses")
+                        break
                 stand_dealer(sub_total_score)
                 if dealer_score[n] >= player_score[n]:
+                    all_loses=all_loses+1
                     print(f"Dealer wins {dealer_score[n]} to {player_score[n]}\n")
                     play_again=input(f"Want to play again {player.name}? yes/y/1 for yes, other keys to cashout").strip().lower()
                     if play_again=="yes" or play_again=="y" or play_again=="1":
@@ -62,8 +66,10 @@ if age >= 18:
                         valid=True
                         continue
                     else:
+                        print(f"{player.name} you have: \n{all_wins} wins and {all_loses} loses")
                         break
                 else:
+                    all_wins=all_wins+1
                     print(f"{player.name} wins {player_score[n]} to {dealer_score[n]}\n")
                     play_again=input(f"Want to play again {player.name}? yes/y/1 for yes, other keys to cashout").strip().lower()
                     if play_again=="yes" or play_again=="y" or play_again=="1":
@@ -72,6 +78,7 @@ if age >= 18:
                         valid=True
                         continue
                     else:
+                        print(f"{player.name} you have: \n{all_wins} wins and {all_loses} loses")
                         break
                     
 
@@ -90,6 +97,7 @@ if age >= 18:
                 sub_total_score=0
                 continue
             else:
+                print(f"{player.name} you have: \n{all_wins} wins and {all_loses} loses")
                 break
 
 
@@ -105,20 +113,23 @@ if age >= 18:
                 di = dealer_hit()
                 sub_total_score += di
                 print(f"dealer rolled a {di} his current score:{sub_total_score}")
-                if sub_total_score >21:
-                    stand_dealer(sub_total_score)
-                    print(f"The dealer has busted!! with a score of {dealer_score[n]}.")
-                    print(f"{player.name}, your score is {player_score[n]} you won!")
-                    play_again=input(f"Want to play again {player.name}? yes/y/1 for yes, other keys to cashout").strip().lower()
+            if sub_total_score >21:
+                all_wins=all_wins+1
+                stand_dealer(sub_total_score)
+                print(f"The dealer has busted!! with a score of {dealer_score[n]}.")
+                print(f"{player.name}, your score is {player_score[n]} you won!")
+                play_again=input(f"Want to play again {player.name}? yes/y/1 for yes, other keys to cashout").strip().lower()
 
-                    if play_again=="yes" or play_again=="y" or play_again=="1":
-                        n=n+1
-                        sub_total_score=0
-                        continue
-                    else:
-                        break
+                if play_again=="yes" or play_again=="y" or play_again=="1":
+                    n=n+1
+                    sub_total_score=0
+                    continue
+                else:
+                    print(f"{player.name} you have: \n{all_wins} wins and {all_loses} loses")
+                    break
             stand_dealer(sub_total_score)
             if dealer_score[n] >= player_score[n]:
+                all_loses=all_loses+1
                 print(f"Dealer wins {dealer_score[n]} to {player_score[n]}\n")
                 play_again=input(f"Want to play again {player.name}? yes/y/1 for yes, other keys to cashout").strip().lower()
                 if play_again=="yes" or play_again=="y" or play_again=="1":
@@ -127,9 +138,11 @@ if age >= 18:
                     valid=True
                     continue
                 else:
+                    print(f"{player.name} you have: \n{all_wins} wins and {all_loses} loses")
                     break
 
             else:
+                all_wins=all_wins+1
                 print(f"{player.name} wins {player_score[n]} to {dealer_score[n]}\n")
                 play_again=input(f"Want to play again {player.name}? yes/y/1 for yes, other keys to cashout").strip().lower()
                 if play_again=="yes" or play_again=="y" or play_again=="1":
@@ -138,6 +151,7 @@ if age >= 18:
                     valid=True
                     continue
                 else:
+                    print(f"{player.name} you have: \n{all_wins} wins and {all_loses} loses")
                     break
                            
             
