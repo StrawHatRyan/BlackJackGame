@@ -78,6 +78,7 @@ while try_again==True:
                     all_wins=all_wins+1
                     print(f"{player.name} wins {player_score[n]} to {dealer_score[n]} by Black Jack\n")
                     money=money+(4*bet_amount)
+                    print(f"{player.name} you won ${(4*bet_amount)}!!!")
                     bet_amount=0
                     play_again=input(f"Want to play again {player.name}? yes/y/1 for yes, other keys to cashout").strip().lower()
                     if play_again=="yes" or play_again=="y" or play_again=="1":
@@ -110,6 +111,7 @@ while try_again==True:
                         print(f"The dealer has busted!! with a score of {dealer_score[n]}.")
                         print(f"{player.name}, your score is {player_score[n]} you won!")
                         money=money+(2*bet_amount)
+                        print(f"{player.name} you won ${(2*bet_amount)}!!!")
                         bet_amount=0
                         play_again=input(f"Want to play again {player.name}? yes/y/1 for yes, other keys to cashout").strip().lower()
                         
@@ -150,6 +152,7 @@ while try_again==True:
                         all_wins=all_wins+1
                         print(f"{player.name} wins {player_score[n]} to {dealer_score[n]}\n")
                         money=money+(2*bet_amount)
+                        print(f"{player.name} you won ${(2*bet_amount)}!!!")
                         bet_amount=0
                         play_again=input(f"Want to play again {player.name}? yes/y/1 for yes, other keys to cashout").strip().lower()
                         if play_again=="yes" or play_again=="y" or play_again=="1":
@@ -204,6 +207,7 @@ while try_again==True:
                     all_wins=all_wins+1
                     print(f"{player.name} wins {player_score[n]} to {dealer_score[n]} by Black Jack\n")
                     money=money+(4*bet_amount)
+                    print(f"{player.name} you won ${(4*bet_amount)}!!!")
                     bet_amount=0
                     play_again=input(f"Want to play again {player.name}? yes/y/1 for yes, other keys to cashout").strip().lower()
                     if play_again=="yes" or play_again=="y" or play_again=="1":
@@ -233,6 +237,7 @@ while try_again==True:
                     print(f"The dealer has busted!! with a score of {dealer_score[n]}.")
                     print(f"{player.name}, your score is {player_score[n]} you won!")
                     money=money+(2*bet_amount)
+                    print(f"{player.name} you won ${(2*bet_amount)}!!!")
                     bet_amount=0
                     play_again=input(f"Want to play again {player.name}? yes/y/1 for yes, other keys to cashout").strip().lower()
 
@@ -274,6 +279,7 @@ while try_again==True:
                     print(f"{player.name} wins {player_score[n]} to {dealer_score[n]}\n")
                     play_again=input(f"Want to play again {player.name}? yes/y/1 for yes, other keys to cashout").strip().lower()
                     money=money+(2*bet_amount)
+                    print(f"{player.name} you won ${(2*bet_amount)}!!!")
                     bet_amount=0
                     if play_again=="yes" or play_again=="y" or play_again=="1":
                         n=n+1
