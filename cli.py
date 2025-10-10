@@ -1,12 +1,11 @@
 from game import Player 
 from dice import *
-
 valid= True
 bet_time=True
 money=1000
 bet_amount=0
 house_busts_player_response_chooser=[1,2,3,4,5,6,7,8,9,0]
-house_busts_player_response=["Karl the dealer: \n Sorry {player.name} better luck next time","Karl the dealer:\nThe house wins! {player.name}","Karl the dealer:\nI hope you had fun {player.name} I'm going to miss you","Karl the dealer:\nYou can't tell me you expected this to be easy right?","Karl the dealer: \nSorry {player.name} that you lost so much money but life is rough","Karl the dealer:\n: I won, I will get a raise.{player.name}\n: You're serious? Karl the dealer \n: I just make 14 an hour of course I'm not serious.","{player.name}:I wish I had more money. Karl the dealer: \n Yeah that is really too bad.","Karl the dealer: \n{player.name} You lost, the house wins, drinks on me.","Karl the dealer:\nCheer up {player.name} you're money will be well kept with the house, maybe","Karl the dealer:\n It's 12am just like that, I have kids at home, thank you for ending my shift {player.name}"]
+house_busts_player_response=["Karl the dealer: \n Sorry bud better luck next time","Karl the dealer:\nThe house wins! bud sorry but there are consequences","Karl the dealer:\nI hope you had fun bud I'm going to miss you","Karl the dealer:\nYou can't tell me you expected this to be easy right?","Karl the dealer: \nSorry bud that you lost so much money but life is rough","Karl the dealer:\n: I won, I will get a raise.\n player:\n You're serious? \nKarl the dealer: \n I just make 14 an hour of course I'm not serious.","player:\nI wish I had more money.\n Karl the dealer: \n Yeah that is really too bad, nothing I can do about it.","Karl the dealer: \n but You lost, the house wins, drinks on me.","Karl the dealer:\nCheer up bud you're money will be well kept with the house, maybe","Karl the dealer:\n It's 12am just like that, I have kids at home, thank you for ending my shift bud"]
 # Ask for the player's name
 name = input(" Welcome to Blackjack! What's your name? ").title()
 
@@ -14,6 +13,8 @@ name = input(" Welcome to Blackjack! What's your name? ").title()
 player = Player(name)
 
 # Greet the player
+
+total_money_lost=0
 try_again=True
 print(f"Hello, {player.name}! Let's play Blackjack!")
 while try_again==True:
@@ -38,9 +39,10 @@ while try_again==True:
                     if que== "yes" or que=="y" or que=="1":
                         print("Okay Good Luck")
                         money=1000
+                        total_money_lost=total_money_lost+1000
                     else:
-                        print(house_busts_player_response[random.choice(house_busts_player_response_chooser)])
-
+                        print(f"{house_busts_player_response[random.choice(house_busts_player_response_chooser)]}")
+                        quit()
                 print("round:",n+1)
                 di = player_hit()  
                 sub_total_score += di
@@ -76,6 +78,8 @@ while try_again==True:
                     stand_dealer(sub_total_score)
                     all_wins=all_wins+1
                     print(f"{player.name} wins {player_score[n]} to {dealer_score[n]} by Black Jack\n")
+                    money=money+(4*bet_amount)
+                    bet_amount=0
                     play_again=input(f"Want to play again {player.name}? yes/y/1 for yes, other keys to cashout").strip().lower()
                     if play_again=="yes" or play_again=="y" or play_again=="1":
                         n=n+1
@@ -86,6 +90,10 @@ while try_again==True:
                     else:
                         print(f"{player.name} you've played {n+1} rounds")
                         print(f"{player.name} you have: \n{all_wins} wins and {all_loses} loses")
+                        print(f"{player.name} you have cashed out with %{money}\n That is %{money/1000} of the starting starting stack")
+                        if total_money_lost>0 and money<total_money_lost:
+                            print(f"{player.name} remember you lost ${total_money_lost}.00 so not much of a winning")
+                                                
                         break
                 
                 elif choice =="stand":
@@ -102,6 +110,8 @@ while try_again==True:
                         stand_dealer(sub_total_score)
                         print(f"The dealer has busted!! with a score of {dealer_score[n]}.")
                         print(f"{player.name}, your score is {player_score[n]} you won!")
+                        money=money+(2*bet_amount)
+                        bet_amount=0
                         play_again=input(f"Want to play again {player.name}? yes/y/1 for yes, other keys to cashout").strip().lower()
                         
                         if play_again=="yes" or play_again=="y" or play_again=="1":
@@ -113,11 +123,16 @@ while try_again==True:
                         else:
                             print(f"{player.name} you've played {n+1} rounds")
                             print(f"{player.name} you have: \n{all_wins} wins and {all_loses} loses")
+                            print(f"{player.name} you have cashed out with %{money}\n That is %{money/1000} of the starting starting stack")
+                            if total_money_lost>0 and money<total_money_lost:
+                                print(f"{player.name} remember you lost ${total_money_lost}.00 so not much of a winning")
                             break
                     stand_dealer(sub_total_score)
                     if dealer_score[n] >= player_score[n]:
                         all_loses=all_loses+1
+                        bet_amount=0
                         print(f"Dealer wins {dealer_score[n]} to {player_score[n]}\n")
+                        bet_amount=0
                         play_again=input(f"Want to play again {player.name}? yes/y/1 for yes, other keys to cashout").strip().lower()
                         if play_again=="yes" or play_again=="y" or play_again=="1":
                             n=n+1
@@ -128,10 +143,15 @@ while try_again==True:
                         else:
                             print(f"{player.name} you've played {n+1} rounds")
                             print(f"{player.name} you have: \n{all_wins} wins and {all_loses} loses")
+                            print(f"{player.name} you have cashed out with %{money}\n That is %{money/1000} of the starting starting stack")
+                            if total_money_lost>0 and money<total_money_lost:
+                                print(f"{player.name} remember you lost ${total_money_lost}.00 so not much of a winning")
                             break
                     else:
                         all_wins=all_wins+1
                         print(f"{player.name} wins {player_score[n]} to {dealer_score[n]}\n")
+                        money=money+(2*bet_amount)
+                        bet_amount=0
                         play_again=input(f"Want to play again {player.name}? yes/y/1 for yes, other keys to cashout").strip().lower()
                         if play_again=="yes" or play_again=="y" or play_again=="1":
                             n=n+1
@@ -142,6 +162,9 @@ while try_again==True:
                         else:
                             print(f"{player.name} you've played {n+1} rounds")
                             print(f"{player.name} you have: \n{all_wins} wins and {all_loses} loses")
+                            print(f"{player.name} you have cashed out with %{money}\n That is %{money/1000} of the starting starting stack")
+                            if total_money_lost>0 and money<total_money_lost:
+                                    print(f"{player.name} remember you lost ${total_money_lost}.00 so not much of a winning")
                             break
                         
 
@@ -152,6 +175,7 @@ while try_again==True:
             if sub_total_score > 21:
                 print("round:",n+1)
                 all_loses=all_loses+1
+                bet_amount=0
                 stand_player(sub_total_score)
                 stand_dealer(0)
                 print(f" {player.name}, you busted with a total of {player_score[n]}! Dealer has score of {dealer_score[n]}")
@@ -165,6 +189,9 @@ while try_again==True:
                 else:
                     print(f"{player.name} you've played {n+1} rounds")
                     print(f"{player.name} you have: \n{all_wins} wins and {all_loses} loses")
+                    print(f"{player.name} you have cashed out with %{money}\n That is %{money/1000} of the starting starting stack")
+                    if total_money_lost>0 and money<total_money_lost:
+                        print(f"{player.name} remember you lost ${total_money_lost}.00 so not much of a winning")
                     break
 
 
@@ -177,6 +204,8 @@ while try_again==True:
                     stand_dealer(sub_total_score)
                     all_wins=all_wins+1
                     print(f"{player.name} wins {player_score[n]} to {dealer_score[n]} by Black Jack\n")
+                    money=money+(4*bet_amount)
+                    bet_amount=0
                     play_again=input(f"Want to play again {player.name}? yes/y/1 for yes, other keys to cashout").strip().lower()
                     if play_again=="yes" or play_again=="y" or play_again=="1":
                         n=n+1
@@ -187,6 +216,9 @@ while try_again==True:
                     else:
                         print(f"{player.name} you've played {n+1} rounds")
                         print(f"{player.name} you have: \n{all_wins} wins and {all_loses} loses")
+                        print(f"{player.name} you have cashed out with %{money}\n That is %{money/1000} of the starting starting stack")
+                        if total_money_lost>0 and money<total_money_lost:
+                            print(f"{player.name} remember you lost ${total_money_lost}.00 so not much of a winning")
                         break
             elif choice == "stand":
                 stand_player(sub_total_score)
@@ -201,6 +233,8 @@ while try_again==True:
                     stand_dealer(sub_total_score)
                     print(f"The dealer has busted!! with a score of {dealer_score[n]}.")
                     print(f"{player.name}, your score is {player_score[n]} you won!")
+                    money=money+(2*bet_amount)
+                    bet_amount=0
                     play_again=input(f"Want to play again {player.name}? yes/y/1 for yes, other keys to cashout").strip().lower()
 
                     if play_again=="yes" or play_again=="y" or play_again=="1":
@@ -212,10 +246,14 @@ while try_again==True:
                     else:
                         print(f"{player.name} you've played {n+1} rounds")
                         print(f"{player.name} you have: \n{all_wins} wins and {all_loses} loses")
+                        print(f"{player.name} you have cashed out with %{money}\n That is %{money/1000} of the starting starting stack")
+                        if total_money_lost>0 and money<total_money_lost:
+                            print(f"{player.name} remember you lost ${total_money_lost}.00 so not much of a winning")
                         break
                 stand_dealer(sub_total_score)
                 if dealer_score[n] >= player_score[n]:
                     all_loses=all_loses+1
+                    bet_amount=0
                     print(f"Dealer wins {dealer_score[n]} to {player_score[n]}\n")
                     play_again=input(f"Want to play again {player.name}? yes/y/1 for yes, other keys to cashout").strip().lower()
                     if play_again=="yes" or play_again=="y" or play_again=="1":
@@ -227,12 +265,17 @@ while try_again==True:
                     else:
                         print(f"{player.name} you've played {n+1} rounds")
                         print(f"{player.name} you have: \n{all_wins} wins and {all_loses} loses")
+                        print(f"{player.name} you have cashed out with %{money}\n That is %{money/1000} of the starting starting stack")
+                        if total_money_lost>0 and money<total_money_lost:
+                            print(f"{player.name} remember you lost ${total_money_lost}.00 so not much of a winning")
                         break
 
                 else:
                     all_wins=all_wins+1
                     print(f"{player.name} wins {player_score[n]} to {dealer_score[n]}\n")
                     play_again=input(f"Want to play again {player.name}? yes/y/1 for yes, other keys to cashout").strip().lower()
+                    money=money+(2*bet_amount)
+                    bet_amount=0
                     if play_again=="yes" or play_again=="y" or play_again=="1":
                         n=n+1
                         sub_total_score=0
@@ -242,6 +285,9 @@ while try_again==True:
                     else:
                         print(f"{player.name} you've played {n+1} rounds")
                         print(f"{player.name} you have: \n{all_wins} wins and {all_loses} loses")
+                        print(f"{player.name} you have cashed out with %{money}\n That is %{money/1000} of the starting starting stack")
+                        if total_money_lost>0 and money<total_money_lost:
+                            print(f"{player.name} remember you lost ${total_money_lost}.00 so not much of a winning")
                         break
                             
                 
