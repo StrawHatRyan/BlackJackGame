@@ -7,7 +7,9 @@ bet_amount=0
 house_busts_player_response_chooser=[1,2,3,4,5,6,7,8,9,0]
 house_busts_player_response=["Karl the dealer: \n Sorry bud better luck next time","Karl the dealer:\nThe house wins! bud sorry but there are consequences","Karl the dealer:\nI hope you had fun bud I'm going to miss you","Karl the dealer:\nYou can't tell me you expected this to be easy right?","Karl the dealer: \nSorry bud that you lost so much money but life is rough","Karl the dealer:\n: I won, I will get a raise.\n player:\n You're serious? \nKarl the dealer: \n I just make 14 an hour of course I'm not serious.","player:\nI wish I had more money.\n Karl the dealer: \n Yeah that is really too bad, nothing I can do about it.","Karl the dealer: \n but You lost, the house wins, drinks on me.","Karl the dealer:\nCheer up bud you're money will be well kept with the house, maybe","Karl the dealer:\n It's 12am just like that, I have kids at home, thank you for ending my shift bud"]
 # Ask for the player's name
-name = input(" Welcome to Blackjack! What's your name? ").title()
+
+print("Game structure:\n You start with $1000, The player plays against the dealer whom is Karl Vouri. \nThe gameplay for the player:\n They get to see their first roll before they bet, \n after they bet they get to decide whether they hit or stand. \n The player has to roll 2 dice at a time. Once they stand the dealer starts to roll their di they have to stand on 18 and hit if lower than 18. \n Game rules:\n Player gets 2x their initial bet if they have a higher score than the dealer or dealer bust, \nPlayer Gets 4x their initial bet automatically if they get the score 21 , Player rolls 2 dice at a time,\n Dealer wins ties, Dealer rolls One Di at a time, You can always buy back in for $1000 no more and no less, Min bet $1, no max bet as long as it isn't above your own balance")
+name = input(" Welcome to Diced Blackjack! What's your name? ").title()
 
 # Create a Player object
 player = Player(name)
@@ -52,6 +54,9 @@ while try_again==True:
                         bet_amount=int(input(f"{player.name} you have ${money}.00  \nHow much would you like to bet, no max, minimun is $1."))
                         if bet_amount<=0:
                             print("The bet must be positive")
+                            continue
+                        if bet_amount>money:
+                            print(f"Sorry {player.name}. You can't bet more money than you have, you have {money}. {bet_amount} is an invalid bet")
                             continue
                         else:
                             money=money-bet_amount
