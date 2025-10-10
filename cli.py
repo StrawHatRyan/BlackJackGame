@@ -24,7 +24,7 @@ while try_again==True:
         age= int(input("How old are you?"))
         
         if age<0:
-            print("Your age can't be negative you were born atleast sometime today.")     
+            print("Your age can't be negative you were born at least sometime today.")     
             continue
         else:
             try_again=False
@@ -85,7 +85,7 @@ while try_again==True:
                     money=money+(4*bet_amount)
                     print(f"{player.name} you won ${(4*bet_amount)}!!!")
                     bet_amount=0
-                    play_again=input(f"Want to play again {player.name}? yes/y/1 for yes, other keys to cashout").strip().lower()
+                    play_again=input(f"Want to play again {player.name}? yes/y/1 for yes, press any other key to cashout: ").strip().lower()
                     if play_again=="yes" or play_again=="y" or play_again=="1":
                         n=n+1
                         valid=True
@@ -118,7 +118,7 @@ while try_again==True:
                         money=money+(2*bet_amount)
                         print(f"{player.name} you won ${(2*bet_amount)}!!!")
                         bet_amount=0
-                        play_again=input(f"Want to play again {player.name}? yes/y/1 for yes, other keys to cashout").strip().lower()
+                        play_again=input(f"Want to play again {player.name}? yes/y/1 for yes, press any other key to cashout: ").strip().lower()
                         
                         if play_again=="yes" or play_again=="y" or play_again=="1":
                             n=n+1
@@ -139,7 +139,7 @@ while try_again==True:
                         bet_amount=0
                         print(f"Dealer wins {dealer_score[n]} to {player_score[n]}\n")
                         bet_amount=0
-                        play_again=input(f"Want to play again {player.name}? yes/y/1 for yes, other keys to cashout").strip().lower()
+                        play_again=input(f"Want to play again {player.name}? yes/y/1 for yes, press any other key to cashout: ").strip().lower()
                         if play_again=="yes" or play_again=="y" or play_again=="1":
                             n=n+1
                             sub_total_score=0
@@ -159,7 +159,7 @@ while try_again==True:
                         money=money+(2*bet_amount)
                         print(f"{player.name} you won ${(2*bet_amount)}!!!")
                         bet_amount=0
-                        play_again=input(f"Want to play again {player.name}? yes/y/1 for yes, other keys to cashout").strip().lower()
+                        play_again=input(f"Want to play again {player.name}? yes/y/1 for yes, press any other key to cashout: ").strip().lower()
                         if play_again=="yes" or play_again=="y" or play_again=="1":
                             n=n+1
                             sub_total_score=0
@@ -186,7 +186,7 @@ while try_again==True:
                 stand_player(sub_total_score)
                 stand_dealer(0)
                 print(f" {player.name}, you busted with a total of {player_score[n]}! Dealer has score of {dealer_score[n]}")
-                play_again=input(f"Want to play again {player.name}? yes/y/1 for yes, other keys to cashout").strip().lower()
+                play_again=input(f"Want to play again {player.name}? yes/y/1 for yes, press any other key to cashout: ").strip().lower()
                 if play_again=="yes" or play_again=="y" or play_again=="1":
                     n=n+1
                     sub_total_score=0
@@ -214,7 +214,7 @@ while try_again==True:
                     money=money+(4*bet_amount)
                     print(f"{player.name} you won ${(4*bet_amount)}!!!")
                     bet_amount=0
-                    play_again=input(f"Want to play again {player.name}? yes/y/1 for yes, other keys to cashout").strip().lower()
+                    play_again=input(f"Want to play again {player.name}? yes/y/1 for yes, press any other key to cashout: ").strip().lower()
                     if play_again=="yes" or play_again=="y" or play_again=="1":
                         n=n+1
                         valid=True
@@ -244,7 +244,7 @@ while try_again==True:
                     money=money+(2*bet_amount)
                     print(f"{player.name} you won ${(2*bet_amount)}!!!")
                     bet_amount=0
-                    play_again=input(f"Want to play again {player.name}? yes/y/1 for yes, other keys to cashout").strip().lower()
+                    play_again=input(f"Want to play again {player.name}? yes/y/1 for yes, press any other key to cashout: ").strip().lower()
 
                     if play_again=="yes" or play_again=="y" or play_again=="1":
                         n=n+1
@@ -264,7 +264,7 @@ while try_again==True:
                     all_loses=all_loses+1
                     bet_amount=0
                     print(f"Dealer wins {dealer_score[n]} to {player_score[n]}\n")
-                    play_again=input(f"Want to play again {player.name}? yes/y/1 for yes, other keys to cashout").strip().lower()
+                    play_again=input(f"Want to play again {player.name}? yes/y/1 for yes, press any other key to cashout: ").strip().lower()
                     if play_again=="yes" or play_again=="y" or play_again=="1":
                         n=n+1
                         sub_total_score=0
@@ -282,7 +282,7 @@ while try_again==True:
                 else:
                     all_wins=all_wins+1
                     print(f"{player.name} wins {player_score[n]} to {dealer_score[n]}\n")
-                    play_again=input(f"Want to play again {player.name}? yes/y/1 for yes, other keys to cashout").strip().lower()
+                    play_again=input(f"Want to play again {player.name}? yes/y/1 for yes, press any other key to cashout: ").strip().lower()
                     money=money+(2*bet_amount)
                     print(f"{player.name} you won ${(2*bet_amount)}!!!")
                     bet_amount=0
