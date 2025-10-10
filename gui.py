@@ -13,7 +13,7 @@ class BlackjackApp(QWidget):
         super().__init__()
 
    
-        self.setWindowTitle("Diced Blackjack 🎲")
+        self.setWindowTitle("Diced Blackjack")
         self.setGeometry(200, 200, 400, 300)
 
 
@@ -67,3 +67,4 @@ if __name__ == "__main__":
     window = BlackjackApp()
     window.show()
     sys.exit(app.exec_())
+
