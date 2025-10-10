@@ -58,7 +58,6 @@ while try_again==True:
                             print(f"{player.name}'s money: {money}")
                             bet_time=False
                             print(f"{player.name} bet: {bet_amount}")
-                            print(f"{player.name} you have cashed out with %{money}\n That is %{money/1000} of the starting starting stack")
                             
                     except:
                         print("Type whole numbers")
@@ -90,7 +89,7 @@ while try_again==True:
                     else:
                         print(f"{player.name} you've played {n+1} rounds")
                         print(f"{player.name} you have: \n{all_wins} wins and {all_loses} loses")
-                        print(f"{player.name} you have cashed out with %{money}\n That is %{money/1000} of the starting starting stack")
+                        print(f"{player.name} you have cashed out with ${money}\n That is %{(money/10)} of the starting starting stack")
                         if total_money_lost>0 and money<total_money_lost:
                             print(f"{player.name} remember you lost ${total_money_lost}.00 so not much of a winning")
                                                 
@@ -123,7 +122,7 @@ while try_again==True:
                         else:
                             print(f"{player.name} you've played {n+1} rounds")
                             print(f"{player.name} you have: \n{all_wins} wins and {all_loses} loses")
-                            print(f"{player.name} you have cashed out with %{money}\n That is %{money/1000} of the starting starting stack")
+                            print(f"{player.name} you have cashed out with ${money}\n That is %{(money/10)} of the starting starting stack")
                             if total_money_lost>0 and money<total_money_lost:
                                 print(f"{player.name} remember you lost ${total_money_lost}.00 so not much of a winning")
                             break
@@ -143,7 +142,7 @@ while try_again==True:
                         else:
                             print(f"{player.name} you've played {n+1} rounds")
                             print(f"{player.name} you have: \n{all_wins} wins and {all_loses} loses")
-                            print(f"{player.name} you have cashed out with %{money}\n That is %{money/1000} of the starting starting stack")
+                            print(f"{player.name} you have cashed out with ${money}\n That is %{(money/10)} of the starting starting stack")
                             if total_money_lost>0 and money<total_money_lost:
                                 print(f"{player.name} remember you lost ${total_money_lost}.00 so not much of a winning")
                             break
@@ -162,7 +161,7 @@ while try_again==True:
                         else:
                             print(f"{player.name} you've played {n+1} rounds")
                             print(f"{player.name} you have: \n{all_wins} wins and {all_loses} loses")
-                            print(f"{player.name} you have cashed out with %{money}\n That is %{money/1000} of the starting starting stack")
+                            print(f"{player.name} you have cashed out with ${money}\n That is %{(money/10)} of the starting starting stack")
                             if total_money_lost>0 and money<total_money_lost:
                                     print(f"{player.name} remember you lost ${total_money_lost}.00 so not much of a winning")
                             break
@@ -189,7 +188,7 @@ while try_again==True:
                 else:
                     print(f"{player.name} you've played {n+1} rounds")
                     print(f"{player.name} you have: \n{all_wins} wins and {all_loses} loses")
-                    print(f"{player.name} you have cashed out with %{money}\n That is %{money/1000} of the starting starting stack")
+                    print(f"{player.name} you have cashed out with ${money}\n That is %{(money/10)} of the starting starting stack")
                     if total_money_lost>0 and money<total_money_lost:
                         print(f"{player.name} remember you lost ${total_money_lost}.00 so not much of a winning")
                     break
@@ -216,7 +215,7 @@ while try_again==True:
                     else:
                         print(f"{player.name} you've played {n+1} rounds")
                         print(f"{player.name} you have: \n{all_wins} wins and {all_loses} loses")
-                        print(f"{player.name} you have cashed out with %{money}\n That is %{money/1000} of the starting starting stack")
+                        print(f"{player.name} you have cashed out with ${money}\n That is %{(money/10)} of the starting starting stack")
                         if total_money_lost>0 and money<total_money_lost:
                             print(f"{player.name} remember you lost ${total_money_lost}.00 so not much of a winning")
                         break
@@ -246,7 +245,7 @@ while try_again==True:
                     else:
                         print(f"{player.name} you've played {n+1} rounds")
                         print(f"{player.name} you have: \n{all_wins} wins and {all_loses} loses")
-                        print(f"{player.name} you have cashed out with %{money}\n That is %{money/1000} of the starting starting stack")
+                        print(f"{player.name} you have cashed out with ${money}\n That is %{(money/10)} of the starting starting stack")
                         if total_money_lost>0 and money<total_money_lost:
                             print(f"{player.name} remember you lost ${total_money_lost}.00 so not much of a winning")
                         break
@@ -265,7 +264,7 @@ while try_again==True:
                     else:
                         print(f"{player.name} you've played {n+1} rounds")
                         print(f"{player.name} you have: \n{all_wins} wins and {all_loses} loses")
-                        print(f"{player.name} you have cashed out with %{money}\n That is %{money/1000} of the starting starting stack")
+                        print(f"{player.name} you have cashed out with ${money}\n That is %{(money/10)} of the starting starting stack")
                         if total_money_lost>0 and money<total_money_lost:
                             print(f"{player.name} remember you lost ${total_money_lost}.00 so not much of a winning")
                         break
@@ -285,7 +284,7 @@ while try_again==True:
                     else:
                         print(f"{player.name} you've played {n+1} rounds")
                         print(f"{player.name} you have: \n{all_wins} wins and {all_loses} loses")
-                        print(f"{player.name} you have cashed out with %{money}\n That is %{money/1000} of the starting starting stack")
+                        print(f"{player.name} you have cashed out with ${money}\n That is %{(money/10)} of the starting starting stack")
                         if total_money_lost>0 and money<total_money_lost:
                             print(f"{player.name} remember you lost ${total_money_lost}.00 so not much of a winning")
                         break
