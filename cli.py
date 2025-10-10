@@ -36,7 +36,7 @@ while try_again==True:
     if age >= 18:
         while True:
             if valid==True:
-                if money==0:
+                if money==0 and bet_time == True:
                     que=input("would you like to rebuy in? \n(yes/y/1 for yes other keys for no)")
                     if que== "yes" or que=="y" or que=="1":
                         print("Okay Good Luck")
@@ -51,7 +51,7 @@ while try_again==True:
                 print(f"{player.name}, you rolled: {di}. Your total is now {sub_total_score}.")
                 while bet_time==True:
                     try:
-                        bet_amount=int(input(f"{player.name} you have ${money}.00  \nHow much would you like to bet, no max, minimun is $1."))
+                        bet_amount=int(input(f"{player.name} you have ${money}.00  \nHow much would you like to bet, no max, minimun is $1:\n"))
                         if bet_amount<=0:
                             print("The bet must be positive")
                             continue
