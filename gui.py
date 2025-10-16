@@ -7,7 +7,7 @@ from PyQt5.QtWidgets import (
 from PyQt5.QtCore import Qt
 from game import Player
 from dice import player_hit, dealer_hit, stand_player, stand_dealer
-
+from PyQt5.QtGui import QPixmap
 
 house_busts_player_response = [
     "The Dealer: \n Sorry bud better luck next time",
@@ -24,6 +24,14 @@ class BlackjackApp(QWidget):
         self.title_label.setAlignment(Qt.AlignCenter)
         self.title_label.setStyleSheet("font-size: 20px; font-weight: bold;")
 
+      
+
+        # Create image label
+        self.image_label = QLabel()
+        self.image_label.setAlignment(Qt.AlignCenter)
+        self.image_label.setPixmap(QPixmap("diceimg.png").scaled(120, 120, Qt.KeepAspectRatio))
+        
+
         self.name_input = QLineEdit()
         self.name_input.setPlaceholderText("Enter your name")
 
@@ -35,6 +43,7 @@ class BlackjackApp(QWidget):
 
         layout = QVBoxLayout()
         layout.addWidget(self.title_label)
+        layout.addWidget(self.image_label) 
         layout.addWidget(self.name_input)
         layout.addWidget(self.start_button)
         layout.addWidget(self.exit_button)
@@ -75,7 +84,12 @@ class GameWindow(QWidget):
 
         self.setWindowTitle(f"Diced Blackjack - {self.player.name}")
         self.setGeometry(250, 250, 500, 400)
-
+        
+        self.image_label = QLabel()
+        self.image_label.setAlignment(Qt.AlignCenter)
+        self.image_label.setPixmap(
+            QPixmap("dealerimg.png").scaled(120, 120, Qt.KeepAspectRatio, Qt.SmoothTransformation)
+        )
 
         self.info_label = QLabel(f"Hello {self.player.name}! You have ${self.money}")
         self.info_label.setAlignment(Qt.AlignCenter)
@@ -103,6 +117,7 @@ class GameWindow(QWidget):
  
         layout = QVBoxLayout()
         layout.addWidget(self.info_label)
+        layout.addWidget(self.image_label)
         layout.addWidget(self.score_label)
         layout.addWidget(self.bet_label)
         layout.addWidget(self.bet_input)
