@@ -8,7 +8,7 @@ house_busts_player_response_chooser=[1,2,3,4,5,6,7,8,9,0]
 house_busts_player_response=["Karl the dealer: \n Sorry bud better luck next time","Karl the dealer:\nThe house wins! bud sorry but there are consequences","Karl the dealer:\nI hope you had fun bud I'm going to miss you","Karl the dealer:\nYou can't tell me you expected this to be easy right?","Karl the dealer: \nSorry bud that you lost so much money but life is rough","Karl the dealer:\n: I won, I will get a raise.\n player:\n You're serious? \nKarl the dealer: \n I just make 14 an hour of course I'm not serious.","player:\nI wish I had more money.\n Karl the dealer: \n Yeah that is really too bad, nothing I can do about it.","Karl the dealer: \n but You lost, the house wins, drinks on me.","Karl the dealer:\nCheer up bud you're money will be well kept with the house, maybe","Karl the dealer:\n It's 12am just like that, I have kids at home, thank you for ending my shift bud"]
 house_reponds_to_cash_out=[]
 house_reponds_to_cash_out_chooser=[1,2,3,4,5,6,7,8,9,0]
-Trash_talk=[]
+Trash_talk=["exGood luck","Have Fun","The dealer will beat you","Haha time to win","You won't win","Ye Haw","Hmmm large bet","Think you can beat me", "Big mistake","The house will win"]
 Trash_chooser=[1,2,3,4,5,6,7,8,9,0]
 
 # Ask for the player's name
@@ -57,7 +57,7 @@ while try_again==True:
                 print(f"{player.name}, you rolled: {di}. Your total is now {sub_total_score}.")
                 while bet_time==True:
                     try:
-                        bet_amount=int(input(f"{player.name} you have ${money}.00  \nHow much would you like to bet, no max, minimun is $1:\n {Trash_talk}\n"))
+                        bet_amount=int(input(f"{player.name} you have ${money}.00  \nHow much would you like to bet, no max, minimun is $1:\n {Trash_talk[random.choice(house_reponds_to_cash_out_chooser)]}\n"))
                         if bet_amount<=0:
                             print("The bet must be positive")
                             continue

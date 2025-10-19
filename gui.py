@@ -13,7 +13,7 @@ house_busts_player_response = [
     "The Dealer: \n Sorry bud better luck next time",
 ]
 
-
+#intro
 class BlackjackApp(QWidget):
     def __init__(self):
         super().__init__()
@@ -72,7 +72,7 @@ class BlackjackApp(QWidget):
         if user_choice == QMessageBox.Yes:
             QApplication.quit()
 
-
+#bet system
 class GameWindow(QWidget):
     def __init__(self, player):
         super().__init__()
@@ -130,7 +130,7 @@ class GameWindow(QWidget):
         layout.addWidget(self.exit_button)
         self.setLayout(layout)
 
-
+    #betting action
     def place_bet(self):
         bet = self.bet_input.value()
         if bet > self.money:
@@ -144,7 +144,7 @@ class GameWindow(QWidget):
         self.hit_button.setEnabled(True)
         self.stand_button.setEnabled(True)
         self.roll_first()
-
+    #hiting/rolling
     def roll_first(self):
 
         roll = player_hit()
@@ -172,7 +172,7 @@ class GameWindow(QWidget):
             self.money += self.bet_amount * 4
             stand_player(self.sub_total_score)
             self.end_round()
-
+#standing, checking scroes, and checking for bust.
     def stand(self):
         stand_player(self.sub_total_score)
         dealer_total = 0
@@ -192,7 +192,7 @@ class GameWindow(QWidget):
             QMessageBox.information(self, "Dealer Wins!", f"Dealer rolled {dealer_rolls} (total {dealer_total}). {response}")
 
         self.end_round()
-
+#
     def end_round(self):
         self.sub_total_score = 0
         self.bet_amount = 0
@@ -216,7 +216,7 @@ class GameWindow(QWidget):
         self.bet_button.setEnabled(True)
         self.hit_button.setEnabled(False)
         self.stand_button.setEnabled(False)
-
+#quits the app
     def close_game(self):
         QApplication.quit()
 
